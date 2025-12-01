@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -13,6 +14,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { GoogleLogin } from '@react-oauth/google'
 
 const Register = () => {
   return (
@@ -57,6 +59,38 @@ const Register = () => {
                   </CInputGroup>
                   <div className="d-grid">
                     <CButton color="success">Create Account</CButton>
+                  </div>
+                  <div className="mt-3">
+                    <GoogleLogin
+                      text="signup_with"
+                      onSuccess={async (credentialResponse) => {
+                        try {
+                          const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+                          const res = await fetch(`${baseUrl}/google-login`, {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                            credentials: 'include',
+                            body: JSON.stringify({ token: credentialResponse.credential }),
+                          });
+                          if (res.ok) {
+                            window.location.href = '/#/dashboard';
+                          } else {
+                            console.error('Google login failed');
+                          }
+                        } catch (err) {
+                          console.error('Google login error', err);
+                        }
+                      }}
+                      onError={() => {
+                        console.log('Login Failed');
+                      }}
+                    />
+                  </div>
+                  <div className="mt-3 text-center">
+                    <p>Already have an account? <Link to="/login">Login</Link></p>
+                    <p><Link to="/">Back to Home</Link></p>
                   </div>
                 </CForm>
               </CCardBody>

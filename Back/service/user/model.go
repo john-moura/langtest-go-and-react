@@ -15,6 +15,8 @@ type User struct {
 	Email     string    `json:"email"`
 	Password  string    `json:"password"`
 	CreatedAt time.Time `json:"createdAt"`
+	GoogleID  string    `json:"googleId"`
+	Avatar    string    `json:"avatar"`
 }
 
 type RegisterUserPayload struct {
@@ -27,4 +29,8 @@ type RegisterUserPayload struct {
 type LoginUserPayload struct {
 	Email    string `json:"email" validate:"required,email"`
 	Password string `json:"password" validate:"required"`
+}
+
+type GoogleLoginPayload struct {
+	Token string `json:"token" validate:"required"`
 }
