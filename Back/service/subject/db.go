@@ -121,3 +121,47 @@ func (c *SubjectDB) GetTests(subjectId, userId int) ([]test.Test, error) {
 
 	return tests, nil
 }
+
+func (c *SubjectDB) GetLatestResults(userID int) (map[string]int, error) {
+	if c.db == nil {
+		log.Printf("DB is nil? %v", c.db == nil)
+	}
+
+	query := `
+		SELECT DISTINCT ON (s.name) s.name, tr.score, tr.total_questions
+		FROM test_results tr
+		JOIN tests t ON tr.test_id = t.id
+		JOIN subjects s ON t.subject_id = s.id
+		WHERE tr.user_id = $1
+		ORDER BY s.name, tr.created_at DESC
+	`
+
+	rows, err := c.db.Query(query, userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	results := make(map[string]int)
+
+	for rows.Next() {
+		var subjectName string
+		var score, totalQuestions int
+		if err := rows.Scan(&subjectName, &score, &totalQuestions); err != nil {
+			return nil, err
+		}
+
+		if totalQuestions > 0 {
+			percentage := (score * 100) / totalQuestions
+			results[subjectName] = percentage
+		} else {
+			results[subjectName] = 0
+		}
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return results, nil
+}

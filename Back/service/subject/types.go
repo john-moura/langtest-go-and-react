@@ -9,6 +9,7 @@ import (
 type SubjectTests interface {
 	GetTests(id, userID int) ([]test.Test, error)
 	GetSubject(id int) (*Subject, error)
+	GetLatestResults(userID int) (map[string]int, error)
 }
 
 type Subject struct {

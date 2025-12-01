@@ -48,3 +48,14 @@ func (h *Handler) handleSubject(w http.ResponseWriter, r *http.Request) {
 
 	utils.WriteJSON(w, http.StatusOK, response)
 }
+
+func (h *Handler) handleGetDashboardData(w http.ResponseWriter, r *http.Request) {
+	// Hardcoded userID = 1 for now
+	results, err := h.subjectTests.GetLatestResults(1)
+	if err != nil {
+		utils.WriteError(w, http.StatusInternalServerError, fmt.Errorf("failed to fetch dashboard data"))
+		return
+	}
+
+	utils.WriteJSON(w, http.StatusOK, results)
+}
