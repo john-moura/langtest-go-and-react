@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, matchPath } from 'react-router-dom'
+import { useLocation, matchPath, Link } from 'react-router-dom'
 
 import routes from '../coreui-routes'
 
@@ -40,14 +40,20 @@ const AppBreadcrumb = () => {
 
   return (
     <CBreadcrumb className="my-0">
-      <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
+      <CBreadcrumbItem>
+        <Link to="/">Home</Link>
+      </CBreadcrumbItem>
       {breadcrumbs.map((breadcrumb, index) => {
         return (
           <CBreadcrumbItem
-            {...(breadcrumb.active ? { active: true } : { href: breadcrumb.pathname })}
+            {...(breadcrumb.active ? { active: true } : {})}
             key={index}
           >
-            {breadcrumb.name}
+            {breadcrumb.active ? (
+              breadcrumb.name
+            ) : (
+              <Link to={breadcrumb.pathname}>{breadcrumb.name}</Link>
+            )}
           </CBreadcrumbItem>
         )
       })}
