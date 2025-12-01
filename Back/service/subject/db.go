@@ -79,15 +79,15 @@ func (c *SubjectDB) GetTests(subjectId int) ([]test.Test, error) {
 		var test test.Test
 		err := rows.Scan(
 			&test.ID,
-			&test.Name,
+			&test.CourseID,
+			&test.SubjectID,
 			&test.ShortDescription,
 			&test.Description,
-			&test.Image,
 			&test.Weight,
 			&test.Duration,
-			&test.SubjectID,
-			&test.CourseID,
+			&test.Image,
 			&test.CreatedAt,
+			&test.Name,
 		)
 		if err != nil {
 			return nil, err

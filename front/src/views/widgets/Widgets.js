@@ -29,7 +29,7 @@ import {
   cilUserFollow,
 } from '@coreui/icons'
 import { CChartBar, CChartLine } from '@coreui/react-chartjs'
-import { DocsExample } from '/src/coreui-components'
+import { DocsExample } from '@/coreui-components'
 
 import WidgetsBrand from './WidgetsBrand'
 import WidgetsDropdown from './WidgetsDropdown'

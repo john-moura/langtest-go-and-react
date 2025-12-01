@@ -31,85 +31,88 @@ const submitForm = async (formData) => {
 
 
 const TestView = ({ testInfo, testParts }) => {
+  console.log('TestView received testInfo:', testInfo);
+  console.log('TestView received testParts:', testParts);
 
   return (
     <>
       <CCard >
-      <CCardBody>
-        <CCardTitle>{testInfo.category} - {testInfo.name}</CCardTitle>
-        <CCardText>
-          {testInfo.description}
-        </CCardText>
-      </CCardBody>
-      <CListGroup flush>
-        <CListGroupItem>Weight: {testInfo.weight*100}% | Duration: {testInfo.duration} min</CListGroupItem>
-      </CListGroup>
-    </CCard>
-    
-    <br></br>
-    <CForm>
-    {testParts.map((testPart, index) => (
-      <>
-          <CCard >
+        <CCardBody>
+          <CCardTitle>{testInfo.category} - {testInfo.name}</CCardTitle>
+          <CCardText>
+            {testInfo.description}
+          </CCardText>
+        </CCardBody>
+        <CListGroup flush>
+          <CListGroupItem>Weight: {testInfo.weight * 100}% | Duration: {testInfo.duration} min</CListGroupItem>
+        </CListGroup>
+      </CCard>
+
+      <br></br>
+      <CForm>
+        {testParts?.map((testPart, index) => (
+          <React.Fragment key={index}>
+            <CCard >
               <CCardBody>
-                  <CCardTitle>{testInfo.category} - Teil {index +1}</CCardTitle>
-                  <CCardText>{testPart.title}</CCardText>
+                <CCardTitle>{testInfo?.category} - Teil {index + 1}</CCardTitle>
+                <CCardText>{testPart.title}</CCardText>
               </CCardBody>
               <CListGroup flush>
-                  <CListGroupItem>
-                      {Object.values(testPart.descriptions).map((description) => (
-                      <CCardText>
-                          {description.index ? (
-                            <span>{description.index}. {description.text}</span> ) : (<span>{description.text}</span>)}
-                      </CCardText>
-                      ))}
-                  </CListGroupItem>
-                  
-                  {Object.values(testPart.questions).map((question) => (
-                  
-                  <CListGroupItem>
-
-                      {question.index ? (
-                        <p><span>{question.index}</span>. {question.text} </p>):(
-                        <p>{question.text}</p>
-                      )}
-
-                      {question.image ? (
-                          <>
-                          <CCard style={{ width: '18rem' }}>
-                            {question.image ? (
-                            <CCardImage variant="top" src={question.image} />) : null}
-                          </CCard>
-                          <br></br>
-                          </>
-                        ): null }
-                      {Object.values(question.answers).map((answer, idx) => (
-                          <CFormCheck
-                              inline
-                              type="radio"
-                              name={question.id}
-                              id={answer.id}
-                              value={answer.id}
-                              label={answer.text}
-                              required
-                          />
-                      ))}
-                      
-                  </CListGroupItem>
+                <CListGroupItem>
+                  {testPart.descriptions?.map((description, descIndex) => (
+                    <CCardText key={descIndex}>
+                      {description.index ? (
+                        <span>{description.index}. {description.text}</span>) : (<span>{description.text}</span>)}
+                    </CCardText>
                   ))}
-              </CListGroup>
-          </CCard>
-          <br></br>
+                </CListGroupItem>
 
-        </>
-    ))}
-    <br></br>
-    <CButton color="primary" type="submit" onClick={() => submitForm()}>
-        Conclude Test
-      </CButton>
-      <CFormFeedback invalid>Please answer all questions before submitting.</CFormFeedback>
+                {testPart.questions?.map((question, qIndex) => (
+
+                  <CListGroupItem key={qIndex}>
+
+                    {question.index ? (
+                      <p><span>{question.index}</span>. {question.text} </p>) : (
+                      <p>{question.text}</p>
+                    )}
+
+                    {question.image ? (
+                      <>
+                        <CCard style={{ width: '18rem' }}>
+                          {question.image ? (
+                            <CCardImage variant="top" src={question.image} />) : null}
+                        </CCard>
+                        <br></br>
+                      </>
+                    ) : null}
+                    {question.answers?.map((answer, aIndex) => (
+                      <CFormCheck
+                        key={aIndex}
+                        inline
+                        type="radio"
+                        name={question.id.toString()}
+                        id={answer.id.toString()}
+                        value={answer.id}
+                        label={answer.text}
+                        required
+                      />
+                    ))}
+
+                  </CListGroupItem>
+                ))}
+              </CListGroup>
+            </CCard>
+            <br></br>
+
+          </React.Fragment>
+        ))}
+        <br></br>
+        <CButton color="primary" type="submit" onClick={() => submitForm()}>
+          Conclude Test
+        </CButton>
+        <CFormFeedback invalid>Please answer all questions before submitting.</CFormFeedback>
       </CForm>
-    <br></br>
+      <br></br>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { CCard, CCardBody, CCardHeader, CCol, CFormSelect, CRow } from '@coreui/react'
-import { DocsComponents, DocsExample } from '/src/coreui-components'
+import { DocsComponents, DocsExample } from '@/coreui-components'
 
 const Select = () => {
   return (

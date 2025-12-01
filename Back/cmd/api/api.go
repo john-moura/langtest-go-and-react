@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/john-moura/langtest/service/subject"
+	"github.com/john-moura/langtest/service/test"
 	"github.com/john-moura/langtest/service/user"
 	"github.com/rs/cors"
 )
@@ -31,9 +32,13 @@ func (s *APIServer) Run() error {
 	userHandler := user.NewHandler(userSchool)
 	userHandler.RegisterRoutes(subrouter)
 
-	subjectTests := subject.NewSubject(s.db)
-	subjectHandler := subject.NewHandler(subjectTests)
+	subjectContent := subject.NewSubject(s.db)
+	subjectHandler := subject.NewHandler(subjectContent)
 	subjectHandler.RegisterRoutes(subrouter)
+
+	testContent := test.NewTest(s.db)
+	testHandler := test.NewHandler(testContent)
+	testHandler.RegisterRoutes(subrouter)
 
 	// Log registered routes
 	_ = router.Walk(func(route *mux.Route, router *mux.Router, ancestors []*mux.Route) error {

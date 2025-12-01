@@ -1,7 +1,7 @@
 import React from 'react'
 import { CRow, CCol, CWidgetStatsD } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { dashboardCards } from '/src/data/dashboardCardData'
+import { dashboardCards } from '@/data/dashboardCardData'
 import { Link } from 'react-router-dom'
 
 const DashboardCards = ({ className }) => {

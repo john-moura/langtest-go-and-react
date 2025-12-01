@@ -1,6 +1,6 @@
-//import { AppContent, AppSidebar, AppFooter, AppHeader } from '/src/coreui-components'
+//import { AppContent, AppSidebar, AppFooter, AppHeader } from '@/coreui-components'
 
-import {AppSidebar, AppHeader, AppContent, AppFooter} from '/src/coreui-components'
+import {AppSidebar, AppHeader, AppContent, AppFooter} from '@/coreui-components'
 
 const DefaultLayout = () => {
   return (

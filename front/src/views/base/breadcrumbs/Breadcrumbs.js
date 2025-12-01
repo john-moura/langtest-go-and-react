@@ -9,7 +9,7 @@ import {
   CRow,
   CLink,
 } from '@coreui/react'
-import { DocsComponents, DocsExample } from '/src/coreui-components'
+import { DocsComponents, DocsExample } from '@/coreui-components'
 
 const Breadcrumbs = () => {
   return (
