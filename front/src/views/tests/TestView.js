@@ -31,20 +31,83 @@ const submitForm = async (formData) => {
 
 
 const TestView = ({ testInfo, testParts }) => {
-  console.log('TestView received testInfo:', testInfo);
-  console.log('TestView received testParts:', testParts);
+  const [answers, setAnswers] = useState({});
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleAnswerChange = (questionId, answerId) => {
+    setAnswers(prev => ({
+      ...prev,
+      [questionId]: parseInt(answerId)
+    }));
+  };
+
+  const submitForm = async () => {
+    setError(null);
+    try {
+      // Check if all questions are answered
+      let allAnswered = true;
+      testParts?.forEach(part => {
+        part.questions?.forEach(q => {
+          if (!answers[q.id]) allAnswered = false;
+        });
+      });
+
+      if (!allAnswered) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const res = await fetch(`${baseUrl}/test/${testInfo.id}/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ answers }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to submit test');
+      }
+
+      const data = await res.json();
+      setResult(data);
+      window.scrollTo(0, 0); // Scroll to top to see score
+    } catch (err) {
+      console.error('Submission error', err);
+      setError("Failed to submit test. Please try again.");
+    }
+  };
+
+  const getQuestionResult = (questionId) => {
+    if (!result) return null;
+    return result.questionResults.find(r => r.questionId === questionId);
+  };
 
   return (
     <>
+      {result && (
+        <CCard className="mb-4 border-success">
+          <CCardBody className="text-center">
+            <CCardTitle className="text-success">Test Completed!</CCardTitle>
+            <div className="card-text">
+              <h3>Score: {result.score} / {result.totalQuestions}</h3>
+              <p>({Math.round((result.score / result.totalQuestions) * 100)}%)</p>
+            </div>
+          </CCardBody>
+        </CCard>
+      )}
+
       <CCard >
         <CCardBody>
-          <CCardTitle>{testInfo.category} - {testInfo.name}</CCardTitle>
+          <CCardTitle>{testInfo?.category} - {testInfo?.name}</CCardTitle>
           <CCardText>
-            {testInfo.description}
+            {testInfo?.description}
           </CCardText>
         </CCardBody>
         <CListGroup flush>
-          <CListGroupItem>Weight: {testInfo.weight * 100}% | Duration: {testInfo.duration} min</CListGroupItem>
+          <CListGroupItem>Weight: {testInfo?.weight * 100}% | Duration: {testInfo?.duration} min</CListGroupItem>
         </CListGroup>
       </CCard>
 
@@ -67,39 +130,63 @@ const TestView = ({ testInfo, testParts }) => {
                   ))}
                 </CListGroupItem>
 
-                {testPart.questions?.map((question, qIndex) => (
+                {testPart.questions?.map((question, qIndex) => {
+                  const qResult = getQuestionResult(question.id);
+                  const isCorrect = qResult?.isCorrect;
+                  const cardStyle = result
+                    ? { border: isCorrect ? '1px solid green' : '1px solid red' }
+                    : {};
 
-                  <CListGroupItem key={qIndex}>
+                  return (
+                    <CListGroupItem key={qIndex} style={cardStyle}>
 
-                    {question.index ? (
-                      <p><span>{question.index}</span>. {question.text} </p>) : (
-                      <p>{question.text}</p>
-                    )}
+                      {question.index ? (
+                        <p><span>{question.index}</span>. {question.text} </p>) : (
+                        <p>{question.text}</p>
+                      )}
 
-                    {question.image ? (
-                      <>
-                        <CCard style={{ width: '18rem' }}>
-                          {question.image ? (
-                            <CCardImage variant="top" src={question.image} />) : null}
-                        </CCard>
-                        <br></br>
-                      </>
-                    ) : null}
-                    {question.answers?.map((answer, aIndex) => (
-                      <CFormCheck
-                        key={aIndex}
-                        inline
-                        type="radio"
-                        name={question.id.toString()}
-                        id={answer.id.toString()}
-                        value={answer.id}
-                        label={answer.text}
-                        required
-                      />
-                    ))}
+                      {question.image ? (
+                        <>
+                          <CCard style={{ width: '18rem' }}>
+                            {question.image ? (
+                              <CCardImage variant="top" src={question.image} />) : null}
+                          </CCard>
+                          <br></br>
+                        </>
+                      ) : null}
 
-                  </CListGroupItem>
-                ))}
+                      {question.answers?.map((answer, aIndex) => {
+                        const isSelected = answers[question.id] === answer.id;
+                        const isCorrectAnswer = qResult?.correctAnswerId === answer.id;
+
+                        let labelStyle = {};
+                        if (result) {
+                          if (isCorrectAnswer) labelStyle = { color: 'green', fontWeight: 'bold' };
+                          else if (isSelected && !isCorrect) labelStyle = { color: 'red', textDecoration: 'line-through' };
+                        }
+
+                        return (
+                          <div key={aIndex} style={labelStyle}>
+                            <CFormCheck
+                              inline
+                              type="radio"
+                              name={question.id.toString()}
+                              id={answer.id.toString()}
+                              value={answer.id}
+                              label={answer.text}
+                              checked={isSelected}
+                              onChange={(e) => handleAnswerChange(question.id, e.target.value)}
+                              disabled={!!result}
+                            />
+                            {result && isCorrectAnswer && <span> (Correct)</span>}
+                            {result && isSelected && !isCorrect && <span> (Your Answer)</span>}
+                          </div>
+                        )
+                      })}
+
+                    </CListGroupItem>
+                  )
+                })}
               </CListGroup>
             </CCard>
             <br></br>
@@ -107,10 +194,12 @@ const TestView = ({ testInfo, testParts }) => {
           </React.Fragment>
         ))}
         <br></br>
-        <CButton color="primary" type="submit" onClick={() => submitForm()}>
-          Conclude Test
-        </CButton>
-        <CFormFeedback invalid>Please answer all questions before submitting.</CFormFeedback>
+        {!result && (
+          <CButton color="primary" onClick={() => submitForm()}>
+            Conclude Test
+          </CButton>
+        )}
+        {error && <div className="text-danger mt-2">{error}</div>}
       </CForm>
       <br></br>
     </>

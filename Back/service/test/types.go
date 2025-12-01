@@ -4,6 +4,7 @@ import "time"
 
 type TestDetails interface {
 	GetTestDetails(id int) (*Test, error)
+	SaveTestResult(userID, testID, score, totalQuestions int) error
 }
 
 type Test struct {
@@ -18,6 +19,10 @@ type Test struct {
 	CourseID         int        `json:"courseId"`
 	CreatedAt        time.Time  `json:"createdAt"`
 	Parts            []TestPart `json:"parts"`
+	IsConcluded      bool       `json:"isConcluded"`
+	Score            int        `json:"score"`
+	TotalQuestions   int        `json:"totalQuestions"`
+	ConcludedAt      *time.Time `json:"concludedAt"`
 }
 
 type TestDetailsResponse struct {
@@ -57,4 +62,22 @@ type Description struct {
 	Header    string `json:"header"`
 	Subheader string `json:"subheader"`
 	Image     string `json:"image"`
+}
+
+type SubmitTestRequest struct {
+	Answers map[int]int `json:"answers"` // QuestionID -> AnswerID
+}
+
+type QuestionResult struct {
+	QuestionID       int  `json:"questionId"`
+	SelectedAnswerID int  `json:"selectedAnswerId"`
+	CorrectAnswerID  int  `json:"correctAnswerId"`
+	IsCorrect        bool `json:"isCorrect"`
+}
+
+type TestResultResponse struct {
+	Score           int              `json:"score"`
+	TotalQuestions  int              `json:"totalQuestions"`
+	CorrectAnswers  int              `json:"correctAnswers"`
+	QuestionResults []QuestionResult `json:"questionResults"`
 }

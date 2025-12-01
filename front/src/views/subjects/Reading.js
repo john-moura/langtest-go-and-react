@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { cibReadme } from '@coreui/icons'
+import { cilBook } from '@coreui/icons'
 import SubjectContent from './SubjectContent';
 
 
@@ -8,6 +8,7 @@ const Reading = ({ className }) => {
   const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   const [tests, setTests] = useState([]);
+  const [concludedTests, setConcludedTests] = useState([]);
   const [subjectInfo, setSubject] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,11 +28,21 @@ const Reading = ({ className }) => {
         }
 
         const data = await res.json();
-        setTests(data.tests || []);
+        const allTests = data.tests || [];
+        const available = allTests.filter(t => !t.isConcluded);
+        const concluded = allTests.filter(t => t.isConcluded);
+
+        setTests(available);
+        setConcludedTests(concluded);
+
+        if (data.subject) {
+          data.subject.icon = cilBook;
+        }
         setSubject(data.subject || []);
       } catch (err) {
         console.error(err);
         setTests([]);
+        setConcludedTests([]);
         setSubject([]);
       } finally {
         setLoading(false);
@@ -41,10 +52,10 @@ const Reading = ({ className }) => {
     getSubject();
   }, [baseUrl]);
 
-  return(
-      <>
-          <SubjectContent tests={tests} concludedTests={tests} subjectInfo={subjectInfo} />
-      </>
+  return (
+    <>
+      <SubjectContent tests={tests} concludedTests={concludedTests} subjectInfo={subjectInfo} />
+    </>
   )
 
 }

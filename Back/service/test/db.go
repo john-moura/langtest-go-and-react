@@ -101,3 +101,8 @@ func (c *TestDB) GetTestDetails(testID int) (*Test, error) {
 
 	return test, nil
 }
+
+func (c *TestDB) SaveTestResult(userID, testID, score, totalQuestions int) error {
+	_, err := c.db.Exec("INSERT INTO test_results (user_id, test_id, score, total_questions) VALUES ($1, $2, $3, $4)", userID, testID, score, totalQuestions)
+	return err
+}

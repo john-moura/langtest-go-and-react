@@ -34,7 +34,8 @@ func (h *Handler) handleSubject(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	subjectTests, err := h.subjectTests.GetTests(id)
+	// Hardcoded userID = 1 for now
+	subjectTests, err := h.subjectTests.GetTests(id, 1)
 	if err != nil {
 		utils.WriteError(w, http.StatusBadRequest, fmt.Errorf("no tests found for subject"))
 		return

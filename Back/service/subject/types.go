@@ -7,7 +7,7 @@ import (
 )
 
 type SubjectTests interface {
-	GetTests(id int) ([]test.Test, error)
+	GetTests(id, userID int) ([]test.Test, error)
 	GetSubject(id int) (*Subject, error)
 }
 
