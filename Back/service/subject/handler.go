@@ -6,6 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
+	"github.com/john-moura/langtest/service/auth"
 	"github.com/john-moura/langtest/utils"
 )
 
@@ -34,8 +35,19 @@ func (h *Handler) handleSubject(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Hardcoded userID = 1 for now
-	subjectTests, err := h.subjectTests.GetTests(id, 1)
+	// Get user ID from token
+	cookie, err := r.Cookie("token")
+	if err != nil {
+		utils.WriteError(w, http.StatusUnauthorized, fmt.Errorf("unauthorized"))
+		return
+	}
+	userID, err := auth.GetUserIDFromToken(cookie.Value)
+	if err != nil {
+		utils.WriteError(w, http.StatusUnauthorized, fmt.Errorf("unauthorized"))
+		return
+	}
+
+	subjectTests, err := h.subjectTests.GetTests(id, userID)
 	if err != nil {
 		utils.WriteError(w, http.StatusBadRequest, fmt.Errorf("no tests found for subject"))
 		return
@@ -50,8 +62,19 @@ func (h *Handler) handleSubject(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) handleGetDashboardData(w http.ResponseWriter, r *http.Request) {
-	// Hardcoded userID = 1 for now
-	results, err := h.subjectTests.GetLatestResults(1)
+	// Get user ID from token
+	cookie, err := r.Cookie("token")
+	if err != nil {
+		utils.WriteError(w, http.StatusUnauthorized, fmt.Errorf("unauthorized"))
+		return
+	}
+	userID, err := auth.GetUserIDFromToken(cookie.Value)
+	if err != nil {
+		utils.WriteError(w, http.StatusUnauthorized, fmt.Errorf("unauthorized"))
+		return
+	}
+
+	results, err := h.subjectTests.GetLatestResults(userID)
 	if err != nil {
 		utils.WriteError(w, http.StatusInternalServerError, fmt.Errorf("failed to fetch dashboard data"))
 		return

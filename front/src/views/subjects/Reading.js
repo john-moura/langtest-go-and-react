@@ -21,6 +21,7 @@ const Reading = ({ className }) => {
             'Content-Type': 'application/json',
             // 'Authorization': `Bearer ${token}`
           },
+          credentials: 'include',
         });
 
         if (!res.ok) {

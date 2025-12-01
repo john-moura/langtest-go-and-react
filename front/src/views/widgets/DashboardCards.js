@@ -11,22 +11,29 @@ const DashboardCards = ({ className }) => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const res = await fetch(`${baseUrl}/dashboard`);
+        const res = await fetch(`${baseUrl}/dashboard`, {
+          credentials: 'include',
+        });
         if (!res.ok) return;
         const data = await res.json();
 
         const updatedCards = dashboardCards.map(card => {
           const score = data[card.name];
-          if (score !== undefined) {
-            return {
-              ...card,
-              values: [
-                { title: 'Score', value: `${score}%` },
-                { title: 'Weight', value: card.values[1].value }, // Keep weight
-              ]
-            };
-          }
-          return card;
+          // If score exists, use it. If not, default to 0% (or handle as needed)
+          // The user requested "only real scores, no placeholders".
+          // If "real scores" means "if user hasn't taken test, show 0% or -", let's assume 0% for now as a "real" starting state.
+          // Or maybe we should hide the card? But usually we want to show available subjects.
+          // Let's set it to 0% if undefined, so it's not a random placeholder number.
+
+          const displayScore = score !== undefined ? score : 0;
+
+          return {
+            ...card,
+            values: [
+              { title: 'Score', value: `${displayScore}%` },
+              { title: 'Weight', value: card.values[1].value }, // Keep weight
+            ]
+          };
         });
         setCards(updatedCards);
       } catch (err) {
