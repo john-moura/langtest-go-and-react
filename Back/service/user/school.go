@@ -41,6 +41,9 @@ func (s *School) GetUserByEmail(email string) (*User, error) {
 }
 
 func scanRowIntoUser(rows *sql.Rows) (*User, error) {
+// This function receives a dataset object and retrieves an instance of User.
+// The user details are mapped from the dataset to the expected User object
+	
 	user := new(User)
 
 	err := rows.Scan(
