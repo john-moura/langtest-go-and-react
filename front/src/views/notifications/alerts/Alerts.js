@@ -9,7 +9,7 @@ import {
   CCol,
   CRow,
 } from '@coreui/react'
-import { DocsComponents, DocsExample } from '/src/coreui-components'
+import { DocsComponents, DocsExample } from '@/coreui-components'
 
 const Alerts = () => {
   return (

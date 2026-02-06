@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { CNav, CNavItem, CNavLink, CTabContent, CTabPane } from '@coreui/react'
+import { cibReadme } from '@coreui/icons'
 import TestList from '../tests/TestList';
 
 const SubjectContent = ({ subjectInfo, tests, concludedTests }) => {
@@ -19,10 +20,10 @@ const SubjectContent = ({ subjectInfo, tests, concludedTests }) => {
       <br></br>
       <CTabContent>
         <CTabPane role="tabpanel" aria-labelledby="new-tab" visible={activeKey === 1}>
-          <TestList className="mb-4" tests={tests} icon={subjectInfo.icon} />
+          <TestList className="mb-4" tests={tests} icon={subjectInfo.icon} subjectName={subjectInfo.name} />
         </CTabPane>
         <CTabPane role="tabpanel" aria-labelledby="concluded-tab" visible={activeKey === 2}>
-          <TestList className="mb-4" tests={concludedTests} icon={subjectInfo.icon} />
+          <TestList className="mb-4" tests={concludedTests} icon={subjectInfo.icon} subjectName={subjectInfo.name} />
         </CTabPane>
       </CTabContent>
 

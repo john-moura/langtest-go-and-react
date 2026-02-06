@@ -32,10 +32,6 @@ const AppHeaderDropdown = () => {
           <CIcon icon={cilBell} className="me-2" />
           Updates
         </CDropdownItem>
-        <CDropdownItem href="#">
-          <CIcon icon={cilEnvelopeOpen} className="me-2" />
-          Messages
-        </CDropdownItem>
         <CDropdownHeader className="bg-body-secondary fw-semibold my-2">Settings</CDropdownHeader>
         <CDropdownItem href="#">
           <CIcon icon={cilUser} className="me-2" />
@@ -50,7 +46,18 @@ const AppHeaderDropdown = () => {
           Payments
         </CDropdownItem>
         <CDropdownDivider />
-        <CDropdownItem href="#">
+        <CDropdownItem onClick={async () => {
+          try {
+            const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+            await fetch(`${baseUrl}/logout`, {
+              method: 'POST',
+              credentials: 'include',
+            })
+            window.location.href = '/#/login'
+          } catch (error) {
+            console.error('Logout failed', error)
+          }
+        }} style={{ cursor: 'pointer' }}>
           <CIcon icon={cilLockLocked} className="me-2" />
           Log out
         </CDropdownItem>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { GoogleLogin } from '@react-oauth/google'
 import {
   CButton,
   CCard,
@@ -56,6 +57,36 @@ const Login = () => {
                         </CButton>
                       </CCol>
                     </CRow>
+                    <div className="mt-3">
+                      <GoogleLogin
+                        onSuccess={async (credentialResponse) => {
+                          try {
+                            const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+                            const res = await fetch(`${baseUrl}/google-login`, {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/json',
+                              },
+                              credentials: 'include',
+                              body: JSON.stringify({ token: credentialResponse.credential }),
+                            });
+                            if (res.ok) {
+                              window.location.href = '/#/dashboard';
+                            } else {
+                              console.error('Google login failed');
+                            }
+                          } catch (err) {
+                            console.error('Google login error', err);
+                          }
+                        }}
+                        onError={() => {
+                          console.log('Login Failed');
+                        }}
+                      />
+                    </div>
+                    <div className="mt-3 text-center">
+                      <Link to="/">Back to Home</Link>
+                    </div>
                   </CForm>
                 </CCardBody>
               </CCard>
@@ -79,7 +110,7 @@ const Login = () => {
           </CCol>
         </CRow>
       </CContainer>
-    </div>
+    </div >
   )
 }
 

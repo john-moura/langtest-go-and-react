@@ -5,16 +5,18 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import 'core-js'
 
-import App from './App'
+import dynamic from 'next/dynamic'
+
+const App = dynamic(() => import('./App'), { ssr: false })
 import store from './store'
 
 const Dashboard: React.FC = () => {
   return (
-  <>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </>
+    <>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </>
   );
 };
 

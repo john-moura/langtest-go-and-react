@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS answers;
+DROP TABLE IF EXISTS questions;
+DROP TABLE IF EXISTS descriptions;
+DROP TABLE IF EXISTS test_parts;

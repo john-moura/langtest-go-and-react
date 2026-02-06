@@ -1,6 +1,6 @@
 import React from 'react'
 import { CCard, CCardHeader, CCardBody } from '@coreui/react'
-import { DocsLink } from '/src/coreui-components'
+import { DocsLink } from '@/coreui-components'
 
 const Typography = () => {
   return (

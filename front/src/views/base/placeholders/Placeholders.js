@@ -11,9 +11,9 @@ import {
   CPlaceholder,
   CRow,
 } from '@coreui/react'
-import { DocsComponents, DocsExample } from '/src/coreui-components'
+import { DocsComponents, DocsExample } from '@/coreui-components'
 
-import ReactImg from '/src/assets/images/react.jpg'
+import ReactImg from '@/assets/images/react.jpg'
 
 const Placeholders = () => {
   return (

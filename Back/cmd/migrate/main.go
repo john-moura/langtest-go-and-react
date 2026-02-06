@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"strconv"
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
@@ -24,6 +25,9 @@ func main() {
 	// )
 
 	psqlInfo := config.Envs.DATABASE_URL
+	if psqlInfo == "" {
+		psqlInfo = "host=127.0.0.1 port=5432 user=postgres password=root dbname=Langtest sslmode=disable"
+	}
 
 	// psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
 	// 	"password=%s dbname=%s sslmode=disable",
@@ -63,6 +67,15 @@ func main() {
 	}
 	if cmd == "down" {
 		if err := m.Down(); err != nil && err != migrate.ErrNoChange {
+			log.Fatal(err)
+		}
+	}
+	if len(os.Args) > 2 && os.Args[len(os.Args)-2] == "force" {
+		version, err := strconv.Atoi(cmd)
+		if err != nil {
+			log.Fatal(err)
+		}
+		if err := m.Force(version); err != nil {
 			log.Fatal(err)
 		}
 	}

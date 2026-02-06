@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, matchPath, Link } from 'react-router-dom'
 
 import routes from '../coreui-routes'
 
@@ -9,7 +9,14 @@ const AppBreadcrumb = () => {
   const currentLocation = useLocation().pathname
 
   const getRouteName = (pathname, routes) => {
-    const currentRoute = routes.find((route) => route.path === pathname)
+    const currentRoute = routes.find((route) => {
+      // Check for exact match first
+      if (route.path === pathname) return true;
+
+      // Check for dynamic route match
+      const match = matchPath({ path: route.path, end: true }, pathname);
+      return match !== null;
+    })
     return currentRoute ? currentRoute.name : false
   }
 
@@ -33,14 +40,20 @@ const AppBreadcrumb = () => {
 
   return (
     <CBreadcrumb className="my-0">
-      <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
+      <CBreadcrumbItem>
+        <Link to="/">Home</Link>
+      </CBreadcrumbItem>
       {breadcrumbs.map((breadcrumb, index) => {
         return (
           <CBreadcrumbItem
-            {...(breadcrumb.active ? { active: true } : { href: breadcrumb.pathname })}
+            {...(breadcrumb.active ? { active: true } : {})}
             key={index}
           >
-            {breadcrumb.name}
+            {breadcrumb.active ? (
+              breadcrumb.name
+            ) : (
+              <Link to={breadcrumb.pathname}>{breadcrumb.name}</Link>
+            )}
           </CBreadcrumbItem>
         )
       })}
