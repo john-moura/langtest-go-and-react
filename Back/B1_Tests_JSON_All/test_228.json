@@ -1,0 +1,1277 @@
+{
+  "testInfo": {
+    "id": 228,
+    "name": "B1 TELC Test 228",
+    "category": "Leseverstehen",
+    "description": "B1 TELC-Style German Language Test - Übungstest Nr.228",
+    "weight": "0.25",
+    "image": "classified_ads_228.png",
+    "duration": 90
+  },
+  "testParts": [
+    {
+      "id": "1",
+      "partType": "descriptionAndText",
+      "title": "Lesen Sie die Überschriften A-J und anschließend die Texte auf der nächsten Seite. Ordnen Sie dann jedem Text die passende Überschrift zu. Jede Überschrift dürfen Sie nur einmal benutzen.",
+      "descriptions": {
+        "1": {
+          "id": "1",
+          "index": "A",
+          "text": "Datenschutz im Internet wichtiger denn je"
+        },
+        "2": {
+          "id": "2",
+          "index": "B",
+          "text": "Plastik vermeiden im Alltag"
+        },
+        "3": {
+          "id": "3",
+          "index": "C",
+          "text": "Nachhaltiger Konsum wird wichtiger"
+        },
+        "4": {
+          "id": "4",
+          "index": "D",
+          "text": "Digitale Kompetenzen sind gefragt"
+        },
+        "5": {
+          "id": "5",
+          "index": "E",
+          "text": "Praktikum im Ausland: Eine Chance"
+        },
+        "6": {
+          "id": "6",
+          "index": "F",
+          "text": "Klimawandel: Was jeder tun kann"
+        },
+        "7": {
+          "id": "7",
+          "index": "G",
+          "text": "Digitale Nomaden: Arbeiten von überall"
+        },
+        "8": {
+          "id": "8",
+          "index": "H",
+          "text": "Lebenslanges Lernen wird wichtiger"
+        },
+        "9": {
+          "id": "9",
+          "index": "I",
+          "text": "Meditation gegen Stress im Alltag"
+        },
+        "10": {
+          "id": "10",
+          "index": "J",
+          "text": "Sport im Alter hält fit"
+        }
+      },
+      "questions": {
+        "1": {
+          "id": "1",
+          "index": "1",
+          "header": "",
+          "subheader": "",
+          "text": "Die Wohnungssuche in Großstädten wird immer schwieriger. Die Mieten steigen, und bezahlbarer Wohnraum ist knapp. Als Alternative entstehen immer mehr Wohngemeinschaften und Co-Living-Projekte. Diese Wohnform bietet nicht nur finanzielle Vorteile, sondern auch soziale Kontakte.",
+          "answers": {
+            "1": {
+              "id": "1",
+              "text": "A",
+              "isCorrect": true
+            },
+            "2": {
+              "id": "2",
+              "text": "B",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "3",
+              "text": "C",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "4",
+              "text": "D",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "5",
+              "text": "E",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "6",
+              "text": "F",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "7",
+              "text": "G",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "8",
+              "text": "H",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "9",
+              "text": "I",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "10",
+              "text": "J",
+              "isCorrect": ""
+            }
+          }
+        },
+        "2": {
+          "id": "2",
+          "index": "2",
+          "header": "",
+          "subheader": "",
+          "text": "Nachhaltigkeit wird für immer mehr Verbraucher zu einem wichtigen Kaufkriterium. Supermärkte reagieren auf diesen Trend und erweitern ihr Sortiment an umweltfreundlichen Produkten. Besonders gefragt sind regionale Lebensmittel und Produkte ohne Plastikverpackung. Eine Umfrage ergab, dass 78% der Konsumenten bereit sind, für nachhaltige Produkte etwas mehr zu bezahlen.",
+          "answers": {
+            "1": {
+              "id": "11",
+              "text": "A",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "12",
+              "text": "B",
+              "isCorrect": true
+            },
+            "3": {
+              "id": "13",
+              "text": "C",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "14",
+              "text": "D",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "15",
+              "text": "E",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "16",
+              "text": "F",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "17",
+              "text": "G",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "18",
+              "text": "H",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "19",
+              "text": "I",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "20",
+              "text": "J",
+              "isCorrect": ""
+            }
+          }
+        },
+        "3": {
+          "id": "3",
+          "index": "3",
+          "header": "",
+          "subheader": "",
+          "text": "Ehrenamtliches Engagement liegt im Trend. Immer mehr Menschen möchten ihre Freizeit sinnvoll nutzen und anderen helfen. Die Möglichkeiten sind vielfältig: von der Hausaufgabenhilfe für Kinder über Besuchsdienste für ältere Menschen bis hin zum Umweltschutz. Studien zeigen, dass ehrenamtliche Arbeit die Lebenszufriedenheit erhöht.",
+          "answers": {
+            "1": {
+              "id": "21",
+              "text": "A",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "22",
+              "text": "B",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "23",
+              "text": "C",
+              "isCorrect": true
+            },
+            "4": {
+              "id": "24",
+              "text": "D",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "25",
+              "text": "E",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "26",
+              "text": "F",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "27",
+              "text": "G",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "28",
+              "text": "H",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "29",
+              "text": "I",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "30",
+              "text": "J",
+              "isCorrect": ""
+            }
+          }
+        },
+        "4": {
+          "id": "4",
+          "index": "4",
+          "header": "",
+          "subheader": "",
+          "text": "Die Digitalisierung verändert nicht nur unsere Arbeitswelt, sondern auch die Art, wie wir lernen. Immer mehr Menschen nutzen Online-Kurse und Apps, um neue Fähigkeiten zu erwerben. Besonders beliebt sind flexible Lernformate, die man neben Beruf und Familie nutzen kann. Eine aktuelle Studie zeigt, dass 65% der Befragten in den letzten zwei Jahren mindestens einen Online-Kurs absolviert haben.",
+          "answers": {
+            "1": {
+              "id": "31",
+              "text": "A",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "32",
+              "text": "B",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "33",
+              "text": "C",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "34",
+              "text": "D",
+              "isCorrect": true
+            },
+            "5": {
+              "id": "35",
+              "text": "E",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "36",
+              "text": "F",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "37",
+              "text": "G",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "38",
+              "text": "H",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "39",
+              "text": "I",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "40",
+              "text": "J",
+              "isCorrect": ""
+            }
+          }
+        },
+        "5": {
+          "id": "5",
+          "index": "5",
+          "header": "",
+          "subheader": "",
+          "text": "Sport und Bewegung sind wichtig für die Gesundheit – das wissen wir alle. Doch viele Menschen finden nach einem langen Arbeitstag keine Motivation mehr für den Besuch im Fitnessstudio. Eine Alternative bieten Sportvereine, die flexible Trainingszeiten und verschiedene Kurse anbieten. Der soziale Aspekt spielt dabei eine große Rolle.",
+          "answers": {
+            "1": {
+              "id": "41",
+              "text": "A",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "42",
+              "text": "B",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "43",
+              "text": "C",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "44",
+              "text": "D",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "45",
+              "text": "E",
+              "isCorrect": true
+            },
+            "6": {
+              "id": "46",
+              "text": "F",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "47",
+              "text": "G",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "48",
+              "text": "H",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "49",
+              "text": "I",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "50",
+              "text": "J",
+              "isCorrect": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "2",
+      "partType": "textAndMultipleChoice",
+      "title": "Lesen Sie den Text und beantworten Sie anschließend die Fragen auf der nächsten Seite. Die Aufgaben haben manchmal eine andere Reihenfolge als die Informationen im Text.",
+      "descriptions": {
+        "1": {
+          "id": "1",
+          "index": "",
+          "header": "Flexible Arbeitsmodelle: Die Zukunft der Arbeit",
+          "subheader": "Immer mehr Unternehmen in Deutschland setzen auf flexible Arbeitsmodelle",
+          "text": "Um 9 Uhr schaltet Maria ihren Computer ein. Sie sitzt nicht im Büro, sondern in ihrer Wohnung. Maria ist Softwareentwicklerin und arbeitet drei Tage pro Woche von zu Hause aus. 'Ich spare mir jeden Tag zwei Stunden Fahrzeit', erklärt sie. 'Diese Zeit kann ich jetzt für Sport oder meine Familie nutzen.'<br><br>Die Firma bietet verschiedene Arbeitsmodelle an. Manche Mitarbeiter arbeiten komplett von zu Hause, andere kommen jeden Tag ins Büro, und viele machen es wie Maria – eine Mischung aus beidem. 'Wir haben festgestellt, dass unsere Mitarbeiter produktiver und zufriedener sind, wenn sie flexibel arbeiten können', sagt Personalchef Thomas Müller.<br><br>Wichtig ist dabei die Kommunikation. Das Unternehmen nutzt verschiedene digitale Tools, damit alle Kollegen gut zusammenarbeiten können. Einmal pro Woche gibt es ein Team-Meeting, bei dem alle – ob im Büro oder zu Hause – per Videokonferenz teilnehmen."
+        }
+      },
+      "questions": {
+        "1": {
+          "id": "6",
+          "index": "6",
+          "header": "",
+          "subheader": "",
+          "text": "Flexible Arbeitsmodelle bedeuten bei TechSolutions:",
+          "answers": {
+            "1": {
+              "id": "51",
+              "index": "a)",
+              "text": "Alle Mitarbeiter müssen im Homeoffice arbeiten.",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "52",
+              "index": "b)",
+              "text": "Die Mitarbeiter können selbst entscheiden, wo sie arbeiten.",
+              "isCorrect": true
+            },
+            "3": {
+              "id": "53",
+              "index": "c)",
+              "text": "Niemand darf mehr ins Büro kommen.",
+              "isCorrect": ""
+            }
+          }
+        },
+        "2": {
+          "id": "7",
+          "index": "7",
+          "header": "",
+          "subheader": "",
+          "text": "Maria spart durch die Arbeit zu Hause:",
+          "answers": {
+            "1": {
+              "id": "54",
+              "index": "a)",
+              "text": "zwei Stunden Fahrzeit pro Tag.",
+              "isCorrect": true
+            },
+            "2": {
+              "id": "55",
+              "index": "b)",
+              "text": "Geld für das Mittagessen.",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "56",
+              "index": "c)",
+              "text": "Zeit für längere Meetings.",
+              "isCorrect": ""
+            }
+          }
+        },
+        "3": {
+          "id": "8",
+          "index": "8",
+          "header": "",
+          "subheader": "",
+          "text": "Die Team-Meetings finden:",
+          "answers": {
+            "1": {
+              "id": "57",
+              "index": "a)",
+              "text": "nur im Büro statt.",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "58",
+              "index": "b)",
+              "text": "einmal pro Woche per Videokonferenz statt.",
+              "isCorrect": true
+            },
+            "3": {
+              "id": "59",
+              "index": "c)",
+              "text": "jeden Tag statt.",
+              "isCorrect": ""
+            }
+          }
+        },
+        "4": {
+          "id": "9",
+          "index": "9",
+          "header": "",
+          "subheader": "",
+          "text": "Durch flexible Arbeitsmodelle:",
+          "answers": {
+            "1": {
+              "id": "60",
+              "index": "a)",
+              "text": "braucht das Unternehmen mehr Büroräume.",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "61",
+              "index": "b)",
+              "text": "arbeiten die Mitarbeiter weniger produktiv.",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "62",
+              "index": "c)",
+              "text": "kann das Unternehmen Kosten sparen.",
+              "isCorrect": true
+            }
+          }
+        },
+        "5": {
+          "id": "10",
+          "index": "10",
+          "header": "",
+          "subheader": "",
+          "text": "Die Firma investiert die gesparten Kosten:",
+          "answers": {
+            "1": {
+              "id": "63",
+              "index": "a)",
+              "text": "in bessere technische Ausstattung für zu Hause.",
+              "isCorrect": true
+            },
+            "2": {
+              "id": "64",
+              "index": "b)",
+              "text": "in mehr Büroräume.",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "65",
+              "index": "c)",
+              "text": "in höhere Gehälter.",
+              "isCorrect": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "3",
+      "partType": "descriptionAndAds",
+      "title": "Lesen Sie die Situationen 11-20 und die Anzeigen auf dem folgenden Blatt. Finden Sie für jede Situation die passende Anzeige. Zu einer Situation gibt es keine passende Anzeige. Schreiben Sie in dem Fall einfach ein x ins Lösungsblatt.",
+      "descriptions": {
+        "1": {
+          "id": "11",
+          "index": "11",
+          "header": "",
+          "subheader": "",
+          "text": "Ihr Freund sucht eine günstige Unterkunft für ein Wochenende in der Stadt."
+        },
+        "2": {
+          "id": "12",
+          "index": "12",
+          "header": "",
+          "subheader": "",
+          "text": "Ihre Kollegin möchte Deutsch lernen und sucht einen Abendkurs."
+        },
+        "3": {
+          "id": "13",
+          "index": "13",
+          "header": "",
+          "subheader": "",
+          "text": "Ein Bekannter von Ihnen sucht einen gebrauchten Laptop für sein Studium."
+        },
+        "4": {
+          "id": "14",
+          "index": "14",
+          "header": "",
+          "subheader": "",
+          "text": "Ihre Nachbarin möchte ihr altes Fahrrad verkaufen."
+        },
+        "5": {
+          "id": "15",
+          "index": "15",
+          "header": "",
+          "subheader": "",
+          "text": "Ihr Bruder sucht einen Job als Kellner für die Wochenenden."
+        },
+        "6": {
+          "id": "16",
+          "index": "16",
+          "header": "",
+          "subheader": "",
+          "text": "Eine Freundin interessiert sich für Yoga-Kurse für Anfänger."
+        },
+        "7": {
+          "id": "17",
+          "index": "17",
+          "header": "",
+          "subheader": "",
+          "text": "Ihr Cousin sucht eine Wohnung in der Stadt, maximal 800 Euro warm."
+        },
+        "8": {
+          "id": "18",
+          "index": "18",
+          "header": "",
+          "subheader": "",
+          "text": "Eine Arbeitskollegin möchte alte Bücher spenden."
+        },
+        "9": {
+          "id": "19",
+          "index": "19",
+          "header": "",
+          "subheader": "",
+          "text": "Ihr Nachbar sucht jemanden, der seinen Hund während des Urlaubs betreut."
+        },
+        "10": {
+          "id": "20",
+          "index": "20",
+          "header": "",
+          "subheader": "",
+          "text": "Eine Bekannte braucht Hilfe beim Umzug am nächsten Samstag."
+        }
+      },
+      "questions": {
+        "1": {
+          "id": "11",
+          "index": "",
+          "image": "classified_ads_228.png#ad-a",
+          "text": "Anzeige A",
+          "answers": {
+            "1": {
+              "id": "54",
+              "index": "",
+              "text": "11",
+              "isCorrect": true
+            },
+            "2": {
+              "id": "55",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "56",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "57",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "58",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "59",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "60",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "61",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "62",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "63",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "2": {
+          "id": "12",
+          "index": "",
+          "image": "classified_ads_228.png#ad-b",
+          "text": "Anzeige B",
+          "answers": {
+            "1": {
+              "id": "64",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "65",
+              "index": "",
+              "text": "12",
+              "isCorrect": true
+            },
+            "3": {
+              "id": "66",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "67",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "68",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "69",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "70",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "71",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "72",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "73",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "3": {
+          "id": "13",
+          "index": "",
+          "image": "classified_ads_228.png#ad-c",
+          "text": "Anzeige C",
+          "answers": {
+            "1": {
+              "id": "74",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "75",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "76",
+              "index": "",
+              "text": "13",
+              "isCorrect": true
+            },
+            "4": {
+              "id": "77",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "78",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "79",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "80",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "81",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "82",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "83",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "4": {
+          "id": "14",
+          "index": "",
+          "image": "classified_ads_228.png#ad-d",
+          "text": "Anzeige D",
+          "answers": {
+            "1": {
+              "id": "84",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "85",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "86",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "87",
+              "index": "",
+              "text": "14",
+              "isCorrect": true
+            },
+            "5": {
+              "id": "88",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "89",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "90",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "91",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "92",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "93",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "5": {
+          "id": "15",
+          "index": "",
+          "image": "classified_ads_228.png#ad-e",
+          "text": "Anzeige E",
+          "answers": {
+            "1": {
+              "id": "94",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "95",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "96",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "97",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "98",
+              "index": "",
+              "text": "15",
+              "isCorrect": true
+            },
+            "6": {
+              "id": "99",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "100",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "101",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "102",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "103",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "6": {
+          "id": "16",
+          "index": "",
+          "image": "classified_ads_228.png#ad-f",
+          "text": "Anzeige F",
+          "answers": {
+            "1": {
+              "id": "104",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "105",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "106",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "107",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "108",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "109",
+              "index": "",
+              "text": "16",
+              "isCorrect": true
+            },
+            "7": {
+              "id": "110",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "111",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "112",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "113",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "7": {
+          "id": "17",
+          "index": "",
+          "image": "classified_ads_228.png#ad-g",
+          "text": "Anzeige G",
+          "answers": {
+            "1": {
+              "id": "114",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "115",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "116",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "117",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "118",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "119",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "120",
+              "index": "",
+              "text": "17",
+              "isCorrect": true
+            },
+            "8": {
+              "id": "121",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "122",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "123",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "8": {
+          "id": "18",
+          "index": "",
+          "image": "classified_ads_228.png#ad-h",
+          "text": "Anzeige H",
+          "answers": {
+            "1": {
+              "id": "124",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "125",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "126",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "127",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "128",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "129",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "130",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "131",
+              "index": "",
+              "text": "18",
+              "isCorrect": true
+            },
+            "9": {
+              "id": "132",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "133",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "9": {
+          "id": "19",
+          "index": "",
+          "image": "classified_ads_228.png#ad-i",
+          "text": "Anzeige I",
+          "answers": {
+            "1": {
+              "id": "134",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "135",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "136",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "137",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "138",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "139",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "140",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "141",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "142",
+              "index": "",
+              "text": "19",
+              "isCorrect": true
+            },
+            "10": {
+              "id": "143",
+              "index": "",
+              "text": "20",
+              "isCorrect": ""
+            }
+          }
+        },
+        "10": {
+          "id": "20",
+          "index": "",
+          "image": "classified_ads_228.png#ad-j",
+          "text": "Anzeige J",
+          "answers": {
+            "1": {
+              "id": "144",
+              "index": "",
+              "text": "11",
+              "isCorrect": ""
+            },
+            "2": {
+              "id": "145",
+              "index": "",
+              "text": "12",
+              "isCorrect": ""
+            },
+            "3": {
+              "id": "146",
+              "index": "",
+              "text": "13",
+              "isCorrect": ""
+            },
+            "4": {
+              "id": "147",
+              "index": "",
+              "text": "14",
+              "isCorrect": ""
+            },
+            "5": {
+              "id": "148",
+              "index": "",
+              "text": "15",
+              "isCorrect": ""
+            },
+            "6": {
+              "id": "149",
+              "index": "",
+              "text": "16",
+              "isCorrect": ""
+            },
+            "7": {
+              "id": "150",
+              "index": "",
+              "text": "17",
+              "isCorrect": ""
+            },
+            "8": {
+              "id": "151",
+              "index": "",
+              "text": "18",
+              "isCorrect": ""
+            },
+            "9": {
+              "id": "152",
+              "index": "",
+              "text": "19",
+              "isCorrect": ""
+            },
+            "10": {
+              "id": "153",
+              "index": "",
+              "text": "20",
+              "isCorrect": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}
