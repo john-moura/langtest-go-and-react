@@ -28,7 +28,8 @@ const Footer: React.FC = () => {
                 <div>
                     <Link href="/" className="flex items-center gap-2">
                         {/*<FaFingerprint className="min-w-fit w-5 h-5 md:w-7 md:h-7" /> */}
-                        <img className="text-foreground min-w-fit w-7 h-7" src="images/Globe.png"></img>
+                        {/* Consider using next/image for optimization */}
+                        <img className="text-foreground min-w-fit w-7 h-7" src="images/Globe.png" alt="Globe logo" />
                         <h3 className="manrope text-xl font-semibold cursor-pointer">
                             {siteDetails.siteName}
                         </h3>

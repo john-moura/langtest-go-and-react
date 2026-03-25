@@ -34,7 +34,8 @@ const Header: React.FC = () => {
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
                         {/*<FaFingerprint className="text-foreground min-w-fit w-7 h-7" /> */}
-                        <img className="text-foreground min-w-fit w-7 h-7" src="images/Flag.png"></img>
+                        {/* Consider using next/image for optimization */}
+                        <img className="text-foreground min-w-fit w-7 h-7" src="images/Flag.png" alt="Flag logo" />
                         <span className="manrope text-xl font-semibold text-foreground cursor-pointer">
                             {siteDetails.siteName}
                         </span>

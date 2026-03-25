@@ -20,7 +20,12 @@ const SignIn = NiceModal.create(() => {
   
   const router = useRouter();
 
-  const onFinish = async (values: any) => {
+  interface SignInFormValues {
+    email: string;
+    password: string;
+  }
+
+  const onFinish = async (values: SignInFormValues) => {
     try {
         await login({
           Email: values.email,

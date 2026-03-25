@@ -18,7 +18,14 @@ const SignUp = NiceModal.create(() => {
   const modal = useModal();
   const router = useRouter();
 
-  const onFinish = async (values: any) => {
+  interface SignUpFormValues {
+    email: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+  }
+
+  const onFinish = async (values: SignUpFormValues) => {
   try {
     await createUser({
       Email: values.email,

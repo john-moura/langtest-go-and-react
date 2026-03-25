@@ -41,8 +41,9 @@ export async function login(data: SignInData): Promise<void> {
   }
   
 }
+
 export async function logOut(){
-  const res = await fetch(`${API_BASE_URL}/logout`, {
+  await fetch(`${API_BASE_URL}/logout`, {
     method: 'POST',
     credentials: 'include', // crucial for sending cookies
   });
