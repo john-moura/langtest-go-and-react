@@ -15,6 +15,10 @@ COPY . .
 
 # Build the application
 RUN CGO_ENABLED=0 GOOS=linux go build -o /langtest ./cmd/main.go
+# Build the db migration tool
+RUN CGO_ENABLED=0 GOOS=linux go build -o /migrate ./cmd/migrate/main.go
+# Build the db seed tool
+RUN CGO_ENABLED=0 GOOS=linux go build -o /seed ./cmd/seed/main.go
 
 # Run stage
 FROM alpine:latest
@@ -23,9 +27,13 @@ WORKDIR /
 
 # Copy the binary from the builder stage
 COPY --from=builder /langtest /langtest
+COPY --from=builder /migrate /migrate
+COPY --from=builder /seed /seed
+# Copy the migrations folder so the migrate tool can find them
+COPY --from=builder /app/cmd/migrate/migrations /cmd/migrate/migrations
 # Copy B1_Tests_JSON_All if needed at runtime
 COPY --from=builder /app/B1_Tests_JSON_All ./B1_Tests_JSON_All
 
 EXPOSE 8080
 
-ENTRYPOINT ["/langtest"]
+ENTRYPOINT ["/bin/sh", "-c", "/migrate up && /seed && exec /langtest"]
