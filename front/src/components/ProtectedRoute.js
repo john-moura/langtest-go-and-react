@@ -8,8 +8,8 @@ const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
-                const res = await fetch(`${baseUrl}/me`, {
+                const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+                const res = await fetch(`${baseUrl}/api/v1/me`, {
                     credentials: 'include',
                 })
                 if (res.ok) {

@@ -227,7 +227,9 @@ func (h *Handler) handleGoogleLogin(w http.ResponseWriter, r *http.Request) {
 		}
 	} else {
 		// User exists, maybe update GoogleID if not set?
-		// For now, just log them in.
+		if u.GoogleID == "" || u.Avatar == "" {
+			_ = h.school.UpdateGoogleDetails(u.ID, googleClaims.Sub, googleClaims.Picture)
+		}
 	}
 
 	// Create JWT
