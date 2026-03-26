@@ -10,6 +10,7 @@ import (
 	"sort"
 	"strconv"
 
+	"github.com/john-moura/langtest/config"
 	_ "github.com/lib/pq"
 )
 
@@ -58,7 +59,7 @@ type JSONAnswer struct {
 }
 
 func main() {
-	psqlInfo := "host=127.0.0.1 port=5432 user=postgres password=root dbname=Langtest sslmode=disable"
+	psqlInfo := config.Envs.DATABASE_URL
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		log.Fatal(err)
@@ -105,6 +106,16 @@ func seedFile(db *sql.DB, filePath string) error {
 	var testFile JSONTestFile
 	if err := json.Unmarshal(data, &testFile); err != nil {
 		return err
+	}
+
+	var exists bool
+	err = db.QueryRow("SELECT EXISTS(SELECT 1 FROM tests WHERE name = $1)", testFile.TestInfo.Name).Scan(&exists)
+	if err != nil {
+		return fmt.Errorf("check existing test: %v", err)
+	}
+	if exists {
+		fmt.Printf("Test '%s' already exists, skipping.\n", testFile.TestInfo.Name)
+		return nil
 	}
 
 	tx, err := db.Begin()

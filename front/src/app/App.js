@@ -15,7 +15,7 @@ const Register = React.lazy(() => import('@/views/pages/register/Register'))
 const Page404 = React.lazy(() => import('@/views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('@/views/pages/page500/Page500'))
 const ProtectedRoute = React.lazy(() => import('@/components/ProtectedRoute'))
-const HomePage = React.lazy(() => import('@/app/landing/page'))
+const HomePage = React.lazy(() => import('@/components/LandingV2/HomePage'))
 
 const App = () => {
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
