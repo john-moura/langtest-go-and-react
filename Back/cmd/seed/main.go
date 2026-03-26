@@ -80,7 +80,7 @@ func main() {
 
 	_, err = db.Exec(`
 		INSERT INTO subjects (id, name, description, course_id, icon) 
-		VALUES (1, 'Default Subject', 'Default Description', 1, 'default_icon.png')
+		VALUES (1, 'Reading', 'Default Description', 1, 'default_icon.png')
 		ON CONFLICT (id) DO NOTHING`)
 	if err != nil {
 		log.Printf("Warning: failed to seed default subject: %v", err)
