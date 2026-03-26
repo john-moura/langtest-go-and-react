@@ -70,6 +70,22 @@ func main() {
 		log.Fatal("Cannot connect to database:", err)
 	}
 
+	_, err = db.Exec(`
+		INSERT INTO courses (id, course_name, description) 
+		VALUES (1, 'Default Course', 'Default Description')
+		ON CONFLICT (id) DO NOTHING`)
+	if err != nil {
+		log.Printf("Warning: failed to seed default course: %v", err)
+	}
+
+	_, err = db.Exec(`
+		INSERT INTO subjects (id, name, description, course_id, icon) 
+		VALUES (1, 'Default Subject', 'Default Description', 1, 'default_icon.png')
+		ON CONFLICT (id) DO NOTHING`)
+	if err != nil {
+		log.Printf("Warning: failed to seed default subject: %v", err)
+	}
+
 	jsonDir := "B1_Tests_JSON_All"
 	files, err := os.ReadDir(jsonDir)
 	if err != nil {
@@ -132,7 +148,7 @@ func seedFile(db *sql.DB, filePath string) error {
 		VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())
 		RETURNING id`,
 		testFile.TestInfo.Name, testFile.TestInfo.Category, testFile.TestInfo.Description,
-		testFile.TestInfo.Image, weight, testFile.TestInfo.Duration, nil, nil).Scan(&testID)
+		testFile.TestInfo.Image, weight, testFile.TestInfo.Duration, 1, 1).Scan(&testID)
 	if err != nil {
 		return fmt.Errorf("insert test: %v", err)
 	}
@@ -160,7 +176,7 @@ func seedFile(db *sql.DB, filePath string) error {
 		for _, k := range descKeys {
 			d := part.Descriptions[k]
 			_, err = tx.Exec(`
-				INSERT INTO descriptions (test_part_id, idx, header, subheader, text, image, created_at)
+				INSERT INTO descriptions (test_part_id, index, header, subheader, text, image, created_at)
 				VALUES ($1, $2, $3, $4, $5, $6, NOW())`,
 				partID, d.Index, d.Header, d.Subheader, d.Text, d.Image)
 			if err != nil {
@@ -179,7 +195,7 @@ func seedFile(db *sql.DB, filePath string) error {
 			q := part.Questions[k]
 			var qID int
 			err = tx.QueryRow(`
-				INSERT INTO questions (test_part_id, idx, header, subheader, text, image, created_at)
+				INSERT INTO questions (test_part_id, index, header, subheader, text, image, created_at)
 				VALUES ($1, $2, $3, $4, $5, $6, NOW())
 				RETURNING id`,
 				partID, q.Index, q.Header, q.Subheader, q.Text, q.Image).Scan(&qID)
@@ -205,7 +221,7 @@ func seedFile(db *sql.DB, filePath string) error {
 				}
 
 				_, err = tx.Exec(`
-					INSERT INTO answers (question_id, idx, text, is_correct, created_at)
+					INSERT INTO answers (question_id, index, text, is_correct, created_at)
 					VALUES ($1, $2, $3, $4, NOW())`,
 					qID, a.Index, a.Text, isCorrect)
 				if err != nil {
