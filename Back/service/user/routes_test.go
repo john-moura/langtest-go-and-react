@@ -75,3 +75,7 @@ func (m *mockUserSchool) GetUserByID(id int) (*User, error) {
 func (m *mockUserSchool) CreateUser(User) error {
 	return nil
 }
+
+func (m *mockUserSchool) UpdateGoogleDetails(userID int, googleID string, avatar string) error {
+	return nil
+}

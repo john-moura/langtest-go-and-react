@@ -53,9 +53,9 @@ func scanRowIntoUser(rows *sql.Rows) (*User, error) {
 		&user.LastName,
 		&user.Email,
 		&user.Password,
-		&user.CreatedAt,
 		&googleID,
 		&avatar,
+		&user.CreatedAt,
 	)
 	if err != nil {
 		return nil, err
@@ -99,4 +99,9 @@ func (s *School) CreateUser(user User) error {
 	}
 
 	return nil
+}
+
+func (s *School) UpdateGoogleDetails(userID int, googleID string, avatar string) error {
+	_, err := s.db.Exec("UPDATE users SET google_id = $1, avatar = $2 WHERE id = $3", googleID, avatar, userID)
+	return err
 }
