@@ -40,7 +40,7 @@ func (c *TestDB) GetTestDetails(testID int) (*Test, error) {
 		}
 
 		// Step 3: Get descriptions for this part
-		descRows, err := c.db.Query("SELECT id, idx, text, header, subheader, image FROM descriptions WHERE test_part_id = $1", part.ID)
+		descRows, err := c.db.Query("SELECT id, index, text, header, subheader, image FROM descriptions WHERE test_part_id = $1", part.ID)
 		if err != nil {
 			return nil, err
 		}
@@ -58,7 +58,7 @@ func (c *TestDB) GetTestDetails(testID int) (*Test, error) {
 		descRows.Close()
 
 		// Step 4: Get questions for this part
-		qRows, err := c.db.Query("SELECT id, idx, header, subheader, text, image FROM questions WHERE test_part_id = $1", part.ID)
+		qRows, err := c.db.Query("SELECT id, index, header, subheader, text, image FROM questions WHERE test_part_id = $1", part.ID)
 		if err != nil {
 			return nil, err
 		}
@@ -75,7 +75,7 @@ func (c *TestDB) GetTestDetails(testID int) (*Test, error) {
 			q.Image = image.String
 
 			// Step 5: Get answers for each question
-			aRows, err := c.db.Query("SELECT id, idx, text, is_correct FROM answers WHERE question_id = $1", q.ID)
+			aRows, err := c.db.Query("SELECT id, index, text, is_correct FROM answers WHERE question_id = $1", q.ID)
 			if err != nil {
 				return nil, err
 			}

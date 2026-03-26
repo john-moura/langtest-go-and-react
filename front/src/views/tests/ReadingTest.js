@@ -7,7 +7,7 @@ const ReadingTest = () => {
 
   const { id } = useParams()
 
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
 
   const [testInfo, setTestInfo] = useState([]);
   const [testParts, setTestParts] = useState([]);
@@ -16,12 +16,12 @@ const ReadingTest = () => {
   useEffect(() => {
     const getTest = async () => {
       try {
-        const res = await fetch(`${baseUrl}/test/${id}`, {
+        const res = await fetch(`${baseUrl}/api/v1/test/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': `Bearer ${token}`
           },
+          credentials: 'include',
         });
 
         if (!res.ok) {
